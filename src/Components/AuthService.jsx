@@ -17,8 +17,8 @@ class AuthService {
   login = (email, password) => {
     return this.service.post('/auth/login', {email, password})
     .then(response => {
-      this.setUser(response.data.token)
-    return response.data.token})     
+      this.setUser(response.data)
+    return response.data})     
   }
 
   setUser(user){

@@ -28,13 +28,15 @@ export default class Nav extends Component {
   }
 
   render() {
-<<<<<<< HEAD
     if(this.state.user){
       return(
         <>
           <div className="navbar">
             <Link to="/" className="navbar__icon"><i className="fab fa-pagelines fa-2x"></i></Link>
-            <i className="fas fa-bars fa-2x navbar__icon" onClick={this.toggleBurger}></i>        
+            <div>
+              <Link to="/user/profile">{this.state.user.user.name}</Link>
+              <i className="fas fa-bars fa-2x navbar__icon" onClick={this.toggleBurger}></i>   
+            </div>
           </div>  
           <div className="navbar__burgerBox" style={{display: this.state.showBurger}}>
             <Link to="/community" className="navbar__link">Community</Link>
@@ -58,21 +60,5 @@ export default class Nav extends Component {
         </>
       )
     }
-=======
-    return (
-      <>
-        <div className="navbar">
-          <Link to="/" className="navbar__icon"><i className="fab fa-pagelines fa-2x"></i></Link>
-          <i className="fas fa-bars fa-2x navbar__icon" onClick={this.toggleBurger}></i>        
-        </div>  
-        <div className="navbar__burgerBox" style={{display: this.state.showBurger}}>
-          <Link to="/login" className="navbar__link">Login</Link>
-          <Link to="/signup" className="navbar__link">SignUp</Link>
-          <Link to="/about" className="navbar__link">About</Link>
-          <Link to="/user/profile" className="navbar__link">Profile</Link>
-        </div>
-      </>
-    )
->>>>>>> 1473043d84292d1e06255c8f4edc68de714060fc
   }
 }
