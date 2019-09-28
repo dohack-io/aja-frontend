@@ -1,0 +1,17 @@
+.signupForm {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    background-color: white;
+    opacity: 0.9;
+    color: rgb(22, 22, 22);
+    margin: 10px auto;
+    padding: 50px 0;
+    border-radius: 10px;
+}
+
+.signupForm__input {
+    display: flex;
+    flex-direction: column;
+}
