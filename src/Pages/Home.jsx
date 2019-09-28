@@ -56,22 +56,23 @@ class Home extends Component {
         if (navigator.geolocation) {
             navigator.geolocation.getCurrentPosition(this.displayLocationInfo);
           }
-          console.log(this.state)
     }
 
     componentDidUpdate(){
-        // if(this._isUpdated){
-        //     axios.post(`${process.env.REACT_APP_API}/gardens/search`,{longitude:this.state.longitude, latitude:this.state.latitude})
-        //     .then(response => {
-        //         this._isUpdated=false;
-        //         this.setState({gardens:response.data})
-        //     })
-        // }
+        if(this._isUpdated){
+            axios.post(`${process.env.REACT_APP_API}/gardens/search`,{longitude:this.state.longitude, latitude:this.state.latitude, radius:5})
+            .then(response => {
+                this._isUpdated=false;
+                this.setState({gardens:response.data})
+            })
+        }
     }
 
 
     render() {
         if(this.state.user && this.state.gardens){
+            console.log(this.state)
+
                 let allGardens = this.state.gardens;
                 let eachGarden = allGardens.map((garden,index)=>{
                 const {showPopup} = this.state;
@@ -95,7 +96,6 @@ class Home extends Component {
                                     closeOnClick={false}
                                     onClose={() => this.setState({showPopup: false})}
                                     >
-                                        <div>{garden.longitude} {garden.latitude}</div>
                                         <GardenInfo id={garden.id} />
                                     </Popup>}
                     </>
@@ -103,22 +103,24 @@ class Home extends Component {
                 })
                 return(
                     <MainLayout>
-                      <ReactMapGL
-                      mapboxApiAccessToken={process.env.REACT_APP_MAP_TOKEN} 
-                      width={800}
-                      height={400}
-                      latitude={this.state.latitude} 
-                      longitude={this.state.longitude} zoom={13}
-                      >
-                        {/* <Marker latitude={this.state.latitude} 
-                                longitude={this.state.longitude} 
-                                offsetLeft={-20} 
-                                offsetTop={-10}
-                        >
-                            <GardenPin size={20} onClick={() => this.setState({showPopup: true})} />
-                        </Marker> */}
-                           {eachGarden}
-                        </ReactMapGL>
+                        <div className="map">
+                            <ReactMapGL
+                            mapboxApiAccessToken={process.env.REACT_APP_MAP_TOKEN} 
+                            width={800}
+                            height={400}
+                            latitude={this.state.latitude} 
+                            longitude={this.state.longitude} zoom={13}
+                            >
+                                {/* <Marker latitude={this.state.latitude} 
+                                        longitude={this.state.longitude} 
+                                        offsetLeft={-20} 
+                                        offsetTop={-10}
+                                >
+                                    <GardenPin size={20} onClick={() => this.setState({showPopup: true})} />
+                                </Marker> */}
+                                {eachGarden}
+                            </ReactMapGL>
+                        </div>
                     </MainLayout>
                 )
         } else {

@@ -12,7 +12,7 @@ export default class GardenDetails extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      gardenID: this.props.location.state.garden.id,
+      gardenID: this.props.match.params.id,
       garden: [],
       error: null,
 
