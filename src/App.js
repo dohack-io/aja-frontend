@@ -6,7 +6,9 @@ import Profile from "./Pages/Profile";
 import SignUp from "./Pages/SignUp";
 import Login from "./Pages/Login";
 import About from "./Pages/About";
-
+import MyGardens from "./Pages/MyGardens";
+import Setting from "./Pages/Setting";
+import Followed from "./Pages/Followed";
 class App extends Component {
   constructor(props){
     super(props)
@@ -20,6 +22,9 @@ class App extends Component {
         <Route exact path="/signup" render ={()=><SignUp/>}/>
         <Route exact path="/login" render = {()=><Login/>}/>
         <Route exact path="/user/profile" render = {(routeProps)=> <Profile/>}/>
+        <Route exact path="/user/setting" render = {(routeProps)=> <MyGardens/>}/>
+        <Route exact path="/user/mygardens" render = {(routeProps)=> <Setting/>}/>
+        <Route exact path="/user/followed" render = {(routeProps)=> <Followed/>}/>
 
       </>
     )

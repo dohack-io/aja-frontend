@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import './MyGarden.css';
+import './MyGardens.css';
 
 export default class MyGardens extends Component {
   render() {
