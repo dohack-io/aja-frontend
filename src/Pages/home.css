@@ -1,4 +1,10 @@
+.homepage {
+    display: flex;
+    flex-direction: column;
+}
+
 .homepage__headerImg {
+    top: 0;
     background: url('/images/homepageheader.jpg') no-repeat bottom center fixed;
     height: 100px;
     width: 100vw;

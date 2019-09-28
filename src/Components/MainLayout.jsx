@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import './MainLayout.css';
-import {Nav} from './Nav';
-import {Wrapper} from './Wrapper';
-import {Footer} from './Footer';
+import Nav from './Nav';
+import Wrapper from './Wrapper';
+import Footer from './Footer';
 
 
 export default class MainLayout extends Component {
