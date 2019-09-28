@@ -9,10 +9,12 @@ import About from "./Pages/About";
 import MyGardens from "./Pages/MyGardens";
 import Setting from "./Pages/Setting";
 import Followed from "./Pages/FollowedGardens";
+
 class App extends Component {
   constructor(props){
     super(props)
     this.state = { loggedInUser: null };
+    console.log(process.env)
   }
   render(){
     return(
