@@ -31,6 +31,7 @@ export default class Nav extends Component {
           <Link to="/login" className="navbar__link">Login</Link>
           <Link to="/signup" className="navbar__link">SignUp</Link>
           <Link to="/about" className="navbar__link">About</Link>
+          <Link to="/user/profile" className="navbar__link">Profile</Link>
         </div>
       </>
     )

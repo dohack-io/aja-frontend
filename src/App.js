@@ -9,6 +9,7 @@ import About from "./Pages/About";
 import MyGardens from "./Pages/MyGardens";
 import Setting from "./Pages/Setting";
 import Followed from "./Pages/FollowedGardens";
+import GardenDetails from "./Pages/GardenDetails";
 
 class App extends Component {
   constructor(props){
@@ -27,7 +28,7 @@ class App extends Component {
         <Route exact path="/user/setting" render = {(routeProps)=> <Setting/>}/>
         <Route exact path="/user/mygardens" render = {(routeProps)=> <MyGardens/>}/>
         <Route exact path="/user/followed" render = {(routeProps)=> <Followed/>}/>
-
+        <Route exact path="/user/followed/:id" render = {(routeProps) => <GardenDetails />} />
       </>
     )
   }
