@@ -14,4 +14,11 @@ export default class User {
                     console.log(error);
                 })
     }
+
+    getSingleGarden(id) {
+        return  axios.get(`${process.env.REACT_APP_API}/garden/${id}`)
+                .catch(function (error) {
+                    console.log(error);
+                })
+    }
 }
