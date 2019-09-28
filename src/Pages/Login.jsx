@@ -2,14 +2,31 @@ import React, { Component } from 'react';
 import {Link} from "react-router-dom";
 import './SignUp.css';
 import MainLayout from "../Components/MainLayout";
+import AuthService from "../Components/AuthService";
 
 export default class Login extends Component {
   constructor(props){
     super(props);
     this.state = { email: '', password: ''};
+    this.service = new AuthService();
   }
 
-   
+  handleFormSubmit = (event) => {
+    event.preventDefault();
+    const email = this.state.email;
+    const password=this.state.password;
+    this.service.login(email,password)
+    .then( response => {
+      console.log(response)
+        this.setState({ 
+                        email:"",
+                        password: ""
+                      });
+        this.props.history.push('/user/profile')
+    })
+    .catch( error => console.log(error) )
+  }
+  
   handleChange = (event) => {  
     const {name, value} = event.target;
     this.setState({[name]: value});
