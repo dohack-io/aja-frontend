@@ -34,7 +34,7 @@ export default class GardenDetails extends Component {
   render() {
     return (
       <MainLayout>
-        <h4 className="details__owner"><span className="details__teamName">{(this.state.garden.team) ? this.state.garden.team.name : "No one"}</span> is currently taking care of <span className="details__gardenName">Garden Eden</span> </h4> 
+        <h4 className="details__owner"><span className="details__teamName">{(this.state.garden.team) ? this.state.garden.team.name : "No one"}</span> is currently taking care of this garden. </h4> 
         <div className="details__box">
           <div className="details__image image__one"></div>
           <div className="details__image image__two"></div>
