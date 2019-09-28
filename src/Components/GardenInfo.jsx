@@ -1,22 +1,12 @@
 import React, {PureComponent} from 'react';
+import {Link} from "react-router-dom";
 
 export default class GardenInfo extends PureComponent {
   render() {
-    const {info} = this.props;
-    const displayName = `${info.city}, ${info.state}`;
-
+    const {id} = this.props;
     return (
       <div>
-        <div>
-          {displayName} |{' '}
-          <a
-            target="_new"
-            href={`http://en.wikipedia.org/w/index.php?title=Special:Search&search=${displayName}`}
-          >
-            Wikipedia
-          </a>
-        </div>
-        <img width={240} src={info.image} alt=""/>
+        <Link to={`/garden/${id}`}>Go to Garden</Link>
       </div>
     );
   }

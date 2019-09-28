@@ -3,8 +3,30 @@ import {Link} from "react-router-dom";
 import "./Home.css";
 import MainLayout from "../Components/MainLayout";
 import axios from "axios";
+import GardenInfo from "../Components/GardenInfo";
 import ReactMapGL, {Marker,Popup} from 'react-map-gl';
-import GardenPin from "../Components/GardenPin";
+const Gardens= [{
+    "id":1,
+    "longitude": 7.5236,
+    "latitude": 51.5028
+},
+{    "id":2,
+    "longitude": 7.5146,
+    "latitude": 51.5093
+},
+{    "id":3,
+    "longitude": 7.5163,
+    "latitude": 51.5012
+},
+{    "id":4,
+    "longitude": 7.5261,
+    "latitude": 51.5087
+},
+{    "id":5,
+    "longitude": 7.5320,
+    "latitude": 51.5016
+}
+]
 
 class Home extends Component {
     _isUpdated = false;
@@ -15,8 +37,8 @@ class Home extends Component {
             user: JSON.parse(localStorage.getItem('user')),
             longitude: null,
             latitude:null,
-            garden:null,
-            showPopup: false
+            showPopup: false,
+            gardens:null
         }
         this.displayLocationInfo= this.displayLocationInfo.bind(this)
     }
@@ -25,7 +47,8 @@ class Home extends Component {
         this._isUpdated=true;
         this.setState({
             longitude : position.coords.longitude,
-            latitude : position.coords.latitude
+            latitude : position.coords.latitude,
+            gardens: Gardens
         })
     }
 
@@ -33,22 +56,51 @@ class Home extends Component {
         if (navigator.geolocation) {
             navigator.geolocation.getCurrentPosition(this.displayLocationInfo);
           }
+          console.log(this.state)
     }
 
     componentDidUpdate(){
-        if(this._isUpdated){
-            axios.post(`${process.env.REACT_APP_API}/gardens/search`,{longitude:this.state.longitude, latitude:this.state.latitude})
-            .then(response => {
-                this._isUpdated=false;
-                this.setState({gardens:response.data})
-            })
-        }
+        // if(this._isUpdated){
+        //     axios.post(`${process.env.REACT_APP_API}/gardens/search`,{longitude:this.state.longitude, latitude:this.state.latitude})
+        //     .then(response => {
+        //         this._isUpdated=false;
+        //         this.setState({gardens:response.data})
+        //     })
+        // }
     }
+
 
     render() {
         if(this.state.user && this.state.gardens){
                 let allGardens = this.state.gardens;
+                let eachGarden = allGardens.map((garden,index)=>{
                 const {showPopup} = this.state;
+                return(
+                    <>
+                        <Marker 
+                        key={`marker-${index}`}
+                        latitude={garden.latitude} 
+                        longitude={garden.longitude} 
+                        offsetLeft={-20} 
+                        offsetTop={-10}
+                        >
+                        <img className="location_icon" src="/images/location.png" alt="" onClick={() => this.setState({showPopup: true})}/>
+
+                        </Marker>
+                        {showPopup && <Popup
+                                    tipSize={5}
+                                    anchor="top"
+                                    longitude={garden.longitude}
+                                    latitude={garden.latitude}
+                                    closeOnClick={false}
+                                    onClose={() => this.setState({showPopup: false})}
+                                    >
+                                        <div>{garden.longitude} {garden.latitude}</div>
+                                        <GardenInfo id={garden.id} />
+                                    </Popup>}
+                    </>
+                )
+                })
                 return(
                     <MainLayout>
                       <ReactMapGL
@@ -56,31 +108,16 @@ class Home extends Component {
                       width={800}
                       height={400}
                       latitude={this.state.latitude} 
-                      longitude={this.state.longitude} zoom={13}>
-                        <Marker latitude={this.state.latitude} 
+                      longitude={this.state.longitude} zoom={13}
+                      >
+                        {/* <Marker latitude={this.state.latitude} 
                                 longitude={this.state.longitude} 
                                 offsetLeft={-20} 
-                                offsetTop={-10}>
+                                offsetTop={-10}
+                        >
                             <GardenPin size={20} onClick={() => this.setState({showPopup: true})} />
-                        </Marker>
-                            {/* <Marker latitude={this.state.latitude} 
-                                    longitude={this.state.longitude} 
-                                    offsetLeft={-20} 
-                                    offsetTop={-10}
-                                    onClick={()=> this.setState({showPopup:true})}
-                            >
-                                <img className="location_icon" src="/images/location.png" alt=""/>
-
-                            </Marker> */}
-                            {showPopup && <Popup
-                                latitude={this.state.latitude}
-                                longitude={this.state.longitude}
-                                closeButton={true}
-                                closeOnClick={false}
-                                onClose={() => this.setState({showPopup: false})}
-                                anchor="top" >
-                                <div>You are here</div>
-                                </Popup>}
+                        </Marker> */}
+                           {eachGarden}
                         </ReactMapGL>
                     </MainLayout>
                 )
