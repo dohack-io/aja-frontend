@@ -1,4 +1,18 @@
 .footer {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  align-items: center;
   height: 50vh;
   background-color: darkgray;
+}
+
+.footer__box {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  min-height: 100px;
+  min-width: 300px;
+  text-align: center;
 }
