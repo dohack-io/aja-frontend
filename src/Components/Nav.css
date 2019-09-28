@@ -14,13 +14,6 @@
 
 .navbar__icon {
   margin: 0 10px;
-}
-
-.navbar__homeIcon {
-  z-index: 15;
-}
-
-.navbar__burgerIcon {
   z-index: 15;
 }
 
