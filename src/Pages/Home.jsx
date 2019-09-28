@@ -56,22 +56,23 @@ class Home extends Component {
         if (navigator.geolocation) {
             navigator.geolocation.getCurrentPosition(this.displayLocationInfo);
           }
-          console.log(this.state)
     }
 
     componentDidUpdate(){
-        // if(this._isUpdated){
-        //     axios.post(`${process.env.REACT_APP_API}/gardens/search`,{longitude:this.state.longitude, latitude:this.state.latitude})
-        //     .then(response => {
-        //         this._isUpdated=false;
-        //         this.setState({gardens:response.data})
-        //     })
-        // }
+        if(this._isUpdated){
+            axios.post(`${process.env.REACT_APP_API}/gardens/search`,{longitude:this.state.longitude, latitude:this.state.latitude, radius:5})
+            .then(response => {
+                this._isUpdated=false;
+                this.setState({gardens:response.data})
+            })
+        }
     }
 
 
     render() {
         if(this.state.user && this.state.gardens){
+            console.log(this.state)
+
                 let allGardens = this.state.gardens;
                 let eachGarden = allGardens.map((garden,index)=>{
                 const {showPopup} = this.state;
