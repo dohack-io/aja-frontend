@@ -1,6 +1,6 @@
 .navbar {
   height: 8vh;
-  background-color: rgb(16, 161, 113);
+  background-color: #96a760;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -9,12 +9,19 @@
 
 .navbar__link {
   margin: 10px;
+  text-decoration: none;
+}
 
+.navbar__username {
+  margin: 0 15px;
+  text-decoration: none;
+  color: white;
 }
 
 .navbar__icon {
-  margin: 0 10px;
+  margin: 0 30px;
   z-index: 15;
+  color: #3e452e;
 }
 
 .navbar__burgerBox {
@@ -29,4 +36,12 @@
   justify-content: center;
   align-items: center;
   z-index: 10;
+  border: 3px solid rgba(100, 100, 100, 0.157)
+}
+
+.navbar__right {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
 }

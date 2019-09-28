@@ -1,0 +1,75 @@
+.details__box{
+    margin: 5px 0;
+    background-color: rgba(170, 170, 170, 0.26);
+    width: 60%;
+    min-width: 300px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    box-sizing: border-box;
+    padding: 20px;
+}
+
+.details__image {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 10px;
+    box-shadow: 10px 11px 28px -18px rgba(0,0,0,0.75);
+    height: 200px;
+    width: 250px;
+    min-width: 250px;
+    background-size: cover;
+    background-position: center;
+}
+
+.add__image {
+    color: rgb(100, 100, 100);
+}
+
+/* Will be replaced by images provided */
+
+.image__one {
+    background-image: url("https://cdn.aarp.net/content/dam/aarp/health/healthy-living/2017/06/1140-gardening-benefit-health-promo-01.imgcache.rev4b20c6f32d7439a8d5e3b0ffdd444ad2.jpg");
+}
+
+.image__two {
+    background-image: url("https://i1.wp.com/ot-magazine.co.uk/wp-content/uploads/2015/01/BACKGROUND-gardening.jpg?resize=1280%2C640&ssl=1")
+}
+
+.image__three {
+    background-image: url("https://www.spogagafa.de/media/redaktionell/spogagafa/img_20/landingpage_4/POS_City-Gardening_1200x765_t01_1025.jpg")
+}
+
+/* - end - */
+
+.details__info {
+    background-color: rgba(170, 170, 170, 0.26);
+    width: 60%;
+    min-height: 500px;
+}
+
+.details__comments {
+
+}
+
+.comment__info {
+    font-size: 0.9rem;
+    margin-top: 10px;
+    max-width: 400px;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+}
+
+.comment__info p, i {
+    margin-right: 10px;
+    /* color: rgb(124, 0, 0); */
+}
+
+.comment__text {
+    max-width: 800px;
+}

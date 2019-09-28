@@ -16,6 +16,7 @@ export default class User {
     }
 
     getSingleGarden(id) {
+        debugger
         return  axios.get(`${process.env.REACT_APP_API}/garden/${id}`)
                 .catch(function (error) {
                     console.log(error);
