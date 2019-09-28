@@ -4,8 +4,8 @@ import './Footer.css';
 export default class Nav extends Component {
   render() {
     return (
-      <div>
-        
+      <div className="navbar">
+
       </div>
     )
   }
