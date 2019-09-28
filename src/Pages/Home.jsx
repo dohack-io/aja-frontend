@@ -96,7 +96,6 @@ class Home extends Component {
                                     closeOnClick={false}
                                     onClose={() => this.setState({showPopup: false})}
                                     >
-                                        <div>{garden.longitude} {garden.latitude}</div>
                                         <GardenInfo id={garden.id} />
                                     </Popup>}
                     </>
@@ -104,22 +103,24 @@ class Home extends Component {
                 })
                 return(
                     <MainLayout>
-                      <ReactMapGL
-                      mapboxApiAccessToken={process.env.REACT_APP_MAP_TOKEN} 
-                      width={800}
-                      height={400}
-                      latitude={this.state.latitude} 
-                      longitude={this.state.longitude} zoom={13}
-                      >
-                        {/* <Marker latitude={this.state.latitude} 
-                                longitude={this.state.longitude} 
-                                offsetLeft={-20} 
-                                offsetTop={-10}
-                        >
-                            <GardenPin size={20} onClick={() => this.setState({showPopup: true})} />
-                        </Marker> */}
-                           {eachGarden}
-                        </ReactMapGL>
+                        <div className="map">
+                            <ReactMapGL
+                            mapboxApiAccessToken={process.env.REACT_APP_MAP_TOKEN} 
+                            width={800}
+                            height={400}
+                            latitude={this.state.latitude} 
+                            longitude={this.state.longitude} zoom={13}
+                            >
+                                {/* <Marker latitude={this.state.latitude} 
+                                        longitude={this.state.longitude} 
+                                        offsetLeft={-20} 
+                                        offsetTop={-10}
+                                >
+                                    <GardenPin size={20} onClick={() => this.setState({showPopup: true})} />
+                                </Marker> */}
+                                {eachGarden}
+                            </ReactMapGL>
+                        </div>
                     </MainLayout>
                 )
         } else {

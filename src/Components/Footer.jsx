@@ -6,19 +6,18 @@ export default class Footer extends Component {
     return (
       <div className="footer">
         <div className="footer__box">
-          <p>bla</p>
-          <p>bla</p>
-          <p>bla</p>
+          <p>Aja</p>
+          <p>© {new Date().getFullYear()}</p>
+        </div>
+        <div className="footer__rowBox">
+          <p>Follow us on</p>
+          <p><i class="fab fa-facebook-square"></i></p>
+          <p><i class="fab fa-twitter-square"></i></p>
+          <p><i class="fab fa-instagram"></i></p>
         </div>
         <div className="footer__box">
-          <p>blubb</p>
-          <p>blubb</p>
-          <p>blubb</p>
-        </div>
-        <div className="footer__box">
-          <p>penis</p>
-          <p>penis</p>
-          <p>penis</p>
+          <p>Contact</p>
+          <p>Further information</p>
         </div>
       </div>
     )
