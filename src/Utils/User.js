@@ -9,12 +9,7 @@ export default class User {
     }
 
     getGardens(id) {
-        debugger
         return  axios.get(`${process.env.REACT_APP_API}/user/${id}/gardens`)
-                .then(function (res) {
-                    debugger
-                    console.log(res);
-                })
                 .catch(function (error) {
                     console.log(error);
                 })
