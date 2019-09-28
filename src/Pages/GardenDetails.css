@@ -1,4 +1,4 @@
-.details__box{
+.details__box {
     margin: 5px 0;
     background-color: rgba(170, 170, 170, 0.26);
     width: 60%;
@@ -18,7 +18,7 @@
     align-items: center;
     justify-content: center;
     margin: 10px;
-    box-shadow: 10px 11px 28px -18px rgba(0,0,0,0.75);
+    box-shadow: 10px 11px 28px -18px rgba(0, 0, 0, 0.75);
     height: 200px;
     width: 250px;
     min-width: 250px;
@@ -29,6 +29,7 @@
 .add__image {
     color: rgb(100, 100, 100);
 }
+
 
 /* Will be replaced by images provided */
 
@@ -43,6 +44,7 @@
 .image__three {
     background-image: url("https://www.spogagafa.de/media/redaktionell/spogagafa/img_20/landingpage_4/POS_City-Gardening_1200x765_t01_1025.jpg")
 }
+
 
 /* - end - */
 
@@ -77,7 +79,8 @@
     background-color: rgba(141, 141, 141, 0.26);
 }
 
-.comment__info p, i {
+.comment__info p,
+i {
     margin-right: 10px;
     /* color: rgb(124, 0, 0); */
 }
@@ -86,3 +89,15 @@
     width: 80%;
 }
 
+.adoptBtn {
+    padding: 10px;
+    min-width: 100px;
+    background-color: green;
+    color: white;
+    text-align: center;
+    border-radius: 5px;
+}
+
+.comment__input {
+    width: 80%;
+}
