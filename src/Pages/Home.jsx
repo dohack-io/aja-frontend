@@ -109,15 +109,9 @@ class Home extends Component {
                             width={1200}
                             height={600}
                             latitude={this.state.latitude} 
-                            longitude={this.state.longitude} zoom={13}
+                            longitude={this.state.longitude} 
+                            zoom={13}
                             >
-                                {/* <Marker latitude={this.state.latitude} 
-                                        longitude={this.state.longitude} 
-                                        offsetLeft={-20} 
-                                        offsetTop={-10}
-                                >
-                                    <GardenPin size={20} onClick={() => this.setState({showPopup: true})} />
-                                </Marker> */}
                                 {eachGarden}
                             </ReactMapGL>
                         </div>
