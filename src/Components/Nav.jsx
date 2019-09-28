@@ -6,11 +6,12 @@ export default class Nav extends Component {
   render() {
     return (
       <div className="navbar">
-        <ul>
-          <li><Link to="/login">Login</Link></li>
-          <li>Register</li>
-          <li>About</li>
-        </ul>
+        <Link to="/" className="navbar__link">Home</Link>
+        <div>
+          <Link to="/login" className="navbar__link">Login</Link>
+          <Link to="/signup" className="navbar__link">SignUp</Link>
+          <Link to="/about" className="navbar__link">About</Link>
+        </div>
       </div>
     )
   }
