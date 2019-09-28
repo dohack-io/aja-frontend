@@ -45,7 +45,7 @@ export default class SignUp extends Component {
         </form>
 
         <p>Already have an account? 
-            <Link to={"/login"} style={{ color: 'rgb(5, 5, 5)', textDecoration:"underline" }}> Login</Link>
+            <Link to={"/login"} style={{ color: 'rgb(5, 5, 5)', textDecoration:"underline" }}> Log in</Link>
         </p>
         </div>
       </MainLayout>
