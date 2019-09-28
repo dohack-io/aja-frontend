@@ -5,7 +5,7 @@ export default class Footer extends Component {
   render() {
     return (
       <div className="footer">
-        
+        <p>Test</p>
       </div>
     )
   }
