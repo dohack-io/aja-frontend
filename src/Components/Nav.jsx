@@ -39,9 +39,10 @@ export default class Nav extends Component {
             </div>
           </div>  
           <div className="navbar__burgerBox" style={{display: this.state.showBurger}}>
-            <Link to="/community" className="navbar__link">Community</Link>
+            <Link to="/about" className="navbar__link">About</Link> 
+            <Link to="/user/profile" className="navbar__link">Profile</Link>
             <Link to="#" className="navbar__link" onClick={() => this.logoutUser()}>Log out</Link>
-            <Link to="/about" className="navbar__link">About</Link>
+            
           </div>
         </>
       )

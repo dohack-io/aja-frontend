@@ -1,10 +1,42 @@
-.profilePage {
+
+.profile__box {
     display: flex;
-    flex-direction: column;
-    justify-content: space-between;
+    flex-direction: row;
+    flex-wrap: wrap;
     align-items: center;
+    justify-content: center;
+    width: 60%;
+    min-width: 300px;
 }
 
-.profilePage div {
-    height: 30%;
+.profile__links {
+    /* width: 300px; */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-size: 1.4rem;
+}
+
+.profile__userInfo {
+    margin: 50px 0; 
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 300px;
+}
+
+.profile__userImage {
+    width: 200px;
+    height: 200px;
+    border-radius: 100px;
+    border: 1px solid lightgray;
+    background-image: url("https://vignette.wikia.nocookie.net/lotr/images/e/e7/Gandalf_the_Grey.jpg/revision/latest/scale-to-width-down/350?cb=20121110131754");
+    background-size: cover;
+    background-position: center;
+}
+
+.profile__userName {
+    text-align: center;
+    color: #3e452e;
+    margin-bottom: 20px;
 }

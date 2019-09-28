@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import './Community.css';
+import './FollowedGardens.css';
 
 export default class FollowedGardens extends Component {
   render() {
