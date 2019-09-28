@@ -1,6 +1,17 @@
 .gardenCard {
     background-color: green;
-    width: 100%;
+    width: 100vw;
     height: 30%;
     padding: 10px;
+    margin: 10px;
+}
+
+.gardenCard__image {
+    background-image: url("/images/homepageheader.jpg");
+    width: 100%;
+    height: 80%;
+}
+
+.gardenCard__name {
+    margin: 5px 0;
 }
