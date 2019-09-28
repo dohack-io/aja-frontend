@@ -9,7 +9,7 @@ export default class MainLayout extends Component {
   render() {
     return (
       <div className="mainlayout">
-        <Nav />
+        <Nav {...this.props}/>
           <Wrapper>
             {this.props.children}
           </Wrapper>

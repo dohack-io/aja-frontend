@@ -17,20 +17,13 @@ class AuthService {
   login = (email, password) => {
     return this.service.post('/auth/login', {email, password})
     .then(response => {
-      this.setUser(response.data)
-    return response.data})     
+      this.setUser(response.data.token)
+    return response.data.token})     
   }
 
   setUser(user){
     localStorage.setItem('user', JSON.stringify(user));
 }
-
-  logout = () => {
-    return this.service.post('/logout', {})
-    .then(() => {
-      localStorage.removeItem('user');
-    })
-  }
 }
 
 export default AuthService;

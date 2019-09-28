@@ -8,7 +8,8 @@ export default class Nav extends Component {
     super(props);
     this.state = {
       error: null,
-      showBurger: "none"
+      showBurger: "none",
+      user: JSON.parse(localStorage.getItem('user'))
     }
 
     this.toggleBurger = this.toggleBurger.bind(this);
@@ -22,19 +23,41 @@ export default class Nav extends Component {
       this.setState({ showBurger: "none"})  
   }
 
+  logoutUser = () =>{
+    localStorage.removeItem('user');
+    this.setState({ user: null });
+    this.props.history.push('/');
+  }
+
   render() {
-    return (
-      <>
-        <div className="navbar">
-          <Link to="/" className="navbar__icon"><i className="fab fa-pagelines fa-2x"></i></Link>
-          <i className="fas fa-bars fa-2x navbar__icon" onClick={this.toggleBurger}></i>        
-        </div>  
-        <div className="navbar__burgerBox" style={{display: this.state.showBurger}}>
-          <Link to="/login" className="navbar__link">Login</Link>
-          <Link to="/signup" className="navbar__link">SignUp</Link>
-          <Link to="/about" className="navbar__link">About</Link>
-        </div>
-      </>
-    )
+    if(this.state.user){
+      return(
+        <>
+          <div className="navbar">
+            <Link to="/" className="navbar__icon"><i className="fab fa-pagelines fa-2x"></i></Link>
+            <i className="fas fa-bars fa-2x navbar__icon" onClick={this.toggleBurger}></i>        
+          </div>  
+          <div className="navbar__burgerBox" style={{display: this.state.showBurger}}>
+            <Link to="/community" className="navbar__link">Community</Link>
+            <Link to="#" className="navbar__link" onClick={() => this.logoutUser()}>Log out</Link>
+            <Link to="/about" className="navbar__link">About</Link>
+          </div>
+        </>
+      )
+    } else {
+      return (
+        <>
+          <div className="navbar">
+            <Link to="/" className="navbar__icon"><i className="fab fa-pagelines fa-2x"></i></Link>
+            <i className="fas fa-bars fa-2x navbar__icon" onClick={this.toggleBurger}></i>        
+          </div>  
+          <div className="navbar__burgerBox" style={{display: this.state.showBurger}}>
+            <Link to="/login" className="navbar__link">Login</Link>
+            <Link to="/signup" className="navbar__link">SignUp</Link>
+            <Link to="/about" className="navbar__link">About</Link>
+          </div>
+        </>
+      )
+    }
   }
 }
