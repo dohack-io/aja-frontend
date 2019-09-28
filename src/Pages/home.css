@@ -1,0 +1,18 @@
+.homepage__headerImg {
+    background: url('/images/homepageheader.jpg') no-repeat bottom center fixed;
+    height: 100px;
+    width: 100vw;
+}
+
+.homepage__welcome {
+    padding: 20px;
+}
+
+.homepage__getStarted {
+    text-decoration: none;
+    background-color: green;
+    color: white;
+    text-align: center;
+    border-radius: 5px;
+    padding: 10px;
+}
