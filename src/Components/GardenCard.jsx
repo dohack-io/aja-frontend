@@ -5,8 +5,8 @@ export default class GardenCard extends Component {
     render() {
         return (
             <div className="gardenCard">
-                <img src="../../public/images/homepageheader.jpg" alt=""/>
-                <h3>hello world</h3>
+                <div className="gardenCard__image"></div>
+                <h3 className="gardenCard__name">hello world</h3>
             </div>
         )
     }
