@@ -16,10 +16,8 @@ export default class Nav extends Component {
 
   toggleBurger() {
     (this.state.showBurger === "none") 
-    ? 
-      this.setState({ showBurger: "flex"}) 
-    : 
-      this.setState({ showBurger: "none"})  
+    ? this.setState({ showBurger: "flex"}) 
+    : this.setState({ showBurger: "none"})  
   }
 
   render() {
