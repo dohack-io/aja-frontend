@@ -106,8 +106,8 @@ class Home extends Component {
                         <div className="map">
                             <ReactMapGL
                             mapboxApiAccessToken={process.env.REACT_APP_MAP_TOKEN} 
-                            width={800}
-                            height={400}
+                            width={1200}
+                            height={600}
                             latitude={this.state.latitude} 
                             longitude={this.state.longitude} zoom={13}
                             >
