@@ -12,8 +12,8 @@ export default class Nav extends Component {
   }
 
   toggleBurger() {
-    document.getElementsByClassName("navbar__burgerBox")[0].style.display = none;
-    
+   // document.getElementsByClassName("navbar__burgerBox")[0].style.display = none;
+
   }
 
 
