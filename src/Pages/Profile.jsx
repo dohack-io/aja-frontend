@@ -8,13 +8,13 @@ export default class Profile extends Component {
             <MainLayout>
                 <div className="profilePage">
                     <div className="settings">
-                        <p><i class="fas fa-cog"></i> Setting</p>
+                        <Link><i class="fas fa-cog"></i> Setting</Link>
                     </div>
                     <div className="mygardens">
-                        <p><i class="fab fa-pagelines"></i> My Gardens</p>
+                        <Link><i class="fab fa-pagelines"></i> My Gardens</Link>
                     </div>
                     <div className="followed">
-                        <p><i class="fas fa-portrait"></i> Followed</p>
+                        <Link><i class="fas fa-portrait"></i> Followed</Link>
                     </div>
                 </div>
             </MainLayout>
