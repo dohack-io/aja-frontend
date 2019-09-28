@@ -28,19 +28,37 @@ export default class Nav extends Component {
   }
 
   render() {
-    return (
-      <>
-        <div className="navbar">
-          <Link to="/" className="navbar__icon"><i className="fab fa-pagelines fa-2x"></i></Link>
-          <i className="fas fa-bars fa-2x navbar__icon" onClick={this.toggleBurger}></i>        
-        </div>  
-        <div className="navbar__burgerBox" style={{display: this.state.showBurger}}>
-          <Link to="/login" className="navbar__link">Login</Link>
-          <Link to="/signup" className="navbar__link">SignUp</Link>
-          <Link to="/about" className="navbar__link">About</Link>
-          <Link to="/user/profile" className="navbar__link">Profile</Link>
-        </div>
-      </>
-    )
+    if(this.state.user){
+      return(
+        <>
+          <div className="navbar">
+            <Link to="/" className="navbar__icon"><i className="fab fa-pagelines fa-2x"></i></Link>
+            <div>
+              <Link to="/user/profile">{this.state.user.user.name}</Link>
+              <i className="fas fa-bars fa-2x navbar__icon" onClick={this.toggleBurger}></i>   
+            </div>
+          </div>  
+          <div className="navbar__burgerBox" style={{display: this.state.showBurger}}>
+            <Link to="/community" className="navbar__link">Community</Link>
+            <Link to="#" className="navbar__link" onClick={() => this.logoutUser()}>Log out</Link>
+            <Link to="/about" className="navbar__link">About</Link>
+          </div>
+        </>
+      )
+    } else {
+      return (
+        <>
+          <div className="navbar">
+            <Link to="/" className="navbar__icon"><i className="fab fa-pagelines fa-2x"></i></Link>
+            <i className="fas fa-bars fa-2x navbar__icon" onClick={this.toggleBurger}></i>        
+          </div>  
+          <div className="navbar__burgerBox" style={{display: this.state.showBurger}}>
+            <Link to="/login" className="navbar__link">Login</Link>
+            <Link to="/signup" className="navbar__link">SignUp</Link>
+            <Link to="/about" className="navbar__link">About</Link>
+          </div>
+        </>
+      )
+    }
   }
 }
