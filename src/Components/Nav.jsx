@@ -7,33 +7,34 @@ export default class Nav extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      error: null
+      error: null,
+      showBurger: "none"
     }
+
+    this.toggleBurger = this.toggleBurger.bind(this);
   }
 
   toggleBurger() {
-   // document.getElementsByClassName("navbar__burgerBox")[0].style.display = none;
-
+    (this.state.showBurger === "none") 
+    ? 
+      this.setState({ showBurger: "flex"}) 
+    : 
+      this.setState({ showBurger: "none"})  
   }
-
-
-
 
   render() {
     return (
-      <div className="navbar">
-        <Link to="/" className="navbar__link"><i class="fab fa-pagelines fa-2x"></i></Link>
-        <div>
-          <i class="fas fa-bars fa-2x"></i>
-
-          <div className="navbar__burgerBox">
-            <Link to="/login" className="navbar__link">Login</Link>
-            <Link to="/signup" className="navbar__link">SignUp</Link>
-            <Link to="/about" className="navbar__link">About</Link>
-          </div>
-          
+      <>
+        <div className="navbar">
+          <Link to="/" className="navbar__homeIcon navbar__icon"><i className="fab fa-pagelines fa-2x"></i></Link>
+          <i className="fas fa-bars fa-2x navbar__burgerIcon navbar__icon" onClick={this.toggleBurger}></i>        
+        </div>  
+        <div className="navbar__burgerBox" style={{display: this.state.showBurger}}>
+          <Link to="/login" className="navbar__link">Login</Link>
+          <Link to="/signup" className="navbar__link">SignUp</Link>
+          <Link to="/about" className="navbar__link">About</Link>
         </div>
-      </div>
+      </>
     )
   }
 }

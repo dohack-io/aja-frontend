@@ -8,9 +8,32 @@
 }
 
 .navbar__link {
-  margin: 0 20px;
+  margin: 10px;
+
+}
+
+.navbar__icon {
+  margin: 0 10px;
+}
+
+.navbar__homeIcon {
+  z-index: 15;
+}
+
+.navbar__burgerIcon {
+  z-index: 15;
 }
 
 .navbar__burgerBox {
-   color: green;
+  position: fixed;
+  top: 0;
+  height: 92vh;
+  width: 100%;
+  background-color: rgba(255, 255, 255, 0.938);
+  color: green;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  z-index: 10;
 }

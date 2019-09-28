@@ -7,7 +7,7 @@
     top: 0;
     background: url('/images/homepageheader.jpg') no-repeat bottom center fixed;
     height: 100px;
-    width: 100vw;
+    width: 100%;
 }
 
 .homepage__welcome {
