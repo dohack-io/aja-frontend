@@ -24,6 +24,12 @@
     min-width: 250px;
     background-size: cover;
     background-position: center;
+    filter: brightness(0.7)
+}
+
+.details__image:hover {
+    height: 200px;
+    filter: brightness(1)
 }
 
 .add__image {
@@ -79,10 +85,8 @@
     background-color: rgba(141, 141, 141, 0.26);
 }
 
-.comment__info p,
-i {
+.comment__info p, i {
     margin-right: 10px;
-    /* color: rgb(124, 0, 0); */
 }
 
 .comment__text {

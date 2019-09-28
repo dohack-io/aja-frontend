@@ -32,7 +32,7 @@ export default class Nav extends Component {
       return(
         <>
           <div className="navbar">
-            <Link to="/" className="navbar__icon"><i className="fab fa-pagelines fa-2x"></i></Link>
+            <Link to="/"><i className="fab fa-pagelines fa-2x navbar__icon"></i></Link>
             <div className="navbar__right">
               <Link to="/user/profile" className="navbar__username" >{this.state.user.user.name}</Link>
               <i className="fas fa-bars fa-2x navbar__icon" onClick={this.toggleBurger}></i>   

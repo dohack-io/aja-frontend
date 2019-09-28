@@ -18,10 +18,19 @@
   color: white;
 }
 
+.navbar__username:hover {
+  color: rgb(149, 1, 1);
+}
+
 .navbar__icon {
   margin: 0 30px;
   z-index: 15;
   color: #3e452e;
+  cursor: pointer;
+}
+
+.navbar__icon:hover {
+  color: yellow;
 }
 
 .navbar__burgerBox {
