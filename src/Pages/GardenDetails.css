@@ -2,7 +2,7 @@
     margin: 5px 0;
     background-color: rgba(170, 170, 170, 0.26);
     width: 60%;
-    min-width: 300px;
+    min-width: 310px;
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
@@ -47,13 +47,19 @@
 /* - end - */
 
 .details__info {
+    display: flex;
+    flex-direction: column;
     background-color: rgba(170, 170, 170, 0.26);
     width: 60%;
-    min-height: 500px;
 }
 
-.details__comments {
+.details__teamName {
+    color: rgb(149, 1, 1);
+}
 
+.details__owner {
+    margin: 10px;
+    font-size: 1.4rem;
 }
 
 .comment__info {
@@ -65,11 +71,18 @@
     justify-content: flex-start;
 }
 
+.details__comments {
+    margin: 5px 0;
+    padding: 3px;
+    background-color: rgba(141, 141, 141, 0.26);
+}
+
 .comment__info p, i {
     margin-right: 10px;
     /* color: rgb(124, 0, 0); */
 }
 
 .comment__text {
-    max-width: 800px;
+    width: 80%;
 }
+
