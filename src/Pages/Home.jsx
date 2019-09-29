@@ -2,10 +2,15 @@ import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import "./Home.css";
 import MainLayout from "../Components/MainLayout";
-import axios from "axios";
-
 
 class Home extends Component {
+  constructor(props){
+    super(props);
+    this.state={
+      user: JSON.parse(localStorage.getItem("user"))
+    }
+  }
+
   render() {
       return (
         <MainLayout>
@@ -18,12 +23,18 @@ class Home extends Component {
                   a brown and boring parcel into a blooming garden. You can browse
                   open gardening areas on our map after logging in.
                 </p>
-                <Link to="/signup" className="homepage__getStarted">
-                  {"Sign up"}
-                </Link>
-                <Link to="/login" className="homepage__getStarted">
-                  {"Log in"}
-                </Link>
+                {(this.state.user)?
+                null
+                :
+                <>                
+                  <Link to="/signup" className="homepage__getStarted">
+                    {"Sign up"}
+                  </Link>
+                  <Link to="/login" className="homepage__getStarted">
+                    {"Log in"}
+                  </Link>
+                </>
+                }
               </div> 
           </div>
         </MainLayout>
