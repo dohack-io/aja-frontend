@@ -23,7 +23,7 @@ Don't give up having fun by doing.
 
 ## About your team
 Frontend happy folks: Jennifer and Luca
-Backend dude: Nikolas and Weiling (Weiling is hello world in backend. she learns constantly!). 
+Backend dude: Niklas and Weiling (Weiling is hello world in backend. she learns constantly!). 
 had fun and learn a lots!
 
 ## What's next for your project?
