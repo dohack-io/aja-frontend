@@ -110,7 +110,7 @@ export default class GardenDetails extends Component {
           <div className="details__image image__one"></div>
           <div className="details__image image__two"></div>
           <div className="details__image image__three"></div>
-          <div className="details__image add__image"><i class="far fa-plus-square fa-3x"></i></div>
+          <div className="details__image add__image"><i className="far fa-plus-square fa-3x"></i></div>
         </div>
         <div className="details__box details__info">
           
