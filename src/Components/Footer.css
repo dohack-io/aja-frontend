@@ -6,10 +6,16 @@
     align-items: center;
     min-height: 20vh;
     background-color: rgb(49, 49, 49);
-
 }
 
-.footer p, i {
+.footer,
+.fa-facebook-square,
+.fa-twitter-square,
+.fa-instagram {
+    color: white;
+}
+
+.footer p {
     color: white;
 }
 
@@ -21,7 +27,6 @@
     min-width: 300px;
     text-align: center;
 }
-
 
 .footer__rowBox {
     display: flex;
