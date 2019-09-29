@@ -73,20 +73,25 @@
     justify-content: flex-start;
 }
 
-.details__comments {
+.details__posts {
     margin: 5px 0;
     padding: 3px;
     background-color: rgba(141, 141, 141, 0.26);
 }
 
-.comment__info p,
+.post__info p,
 i {
     margin-right: 10px;
     /* color: rgb(124, 0, 0); */
 }
 
-.comment__text {
+.post__text {
     width: 80%;
+    font-size: 20px;
+}
+
+.post__time {
+    font-size: 12px;
 }
 
 .adoptBtn {
@@ -98,6 +103,6 @@ i {
     border-radius: 5px;
 }
 
-.comment__input {
-    width: 80%;
+.postForm__input {
+    width: 100%;
 }
