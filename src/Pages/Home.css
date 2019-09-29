@@ -1,7 +1,7 @@
 .homepage__headerImg {
     background: url('/images/homepageheader.jpg') no-repeat bottom center fixed;
-    height: 100px;
     width: 100%;
+    height: 92vh;
 }
 
 .homepage__welcome {
@@ -9,6 +9,7 @@
     padding: 20px 0;
     width: 60%;
     min-width: 300px;
+    color: white;
 }
 
 .homepage__getStarted {
