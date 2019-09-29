@@ -70,12 +70,12 @@
     font-size: 1.4rem;
 }
 
-.comment__info {
+.post__info {
     font-size: 0.9rem;
     margin-top: 10px;
-    max-width: 400px;
+    width: 400px;
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     justify-content: flex-start;
 }
 
@@ -83,6 +83,7 @@
     windth: 300px;
     margin: 5px 0;
     padding: 3px;
+    width: 100%;
     background-color: rgba(141, 141, 141, 0.26);
 }
 
@@ -102,7 +103,7 @@ i {
 
 .adoptBtn {
     padding: 10px;
-    min-width: 100px;
+    width: 120px;
     background-color: green;
     color: white;
     text-align: center;

@@ -27,7 +27,6 @@ class App extends Component {
         <Route exact path="/user/setting" render = {(routeProps)=> <Setting/>}/>
         <Route exact path="/user/mygardens" render = {(routeProps)=> <MyGardens/>}/>
         <Route exact path="/user/followed" render = {(routeProps)=> <Followed/>}/>
-        {/* <Route exact path="/user/followed/:id" render = {(routeProps) => <GardenDetails />} /> */}
         <Route exact path="/garden/:id" render = {(routeProps) => <GardenDetails {...routeProps} /> } />
       </>
     )
