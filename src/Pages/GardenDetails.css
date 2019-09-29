@@ -108,11 +108,15 @@ i {
 
 .adoptBtn {
     padding: 10px;
-    width: 120px;
-    background-color: green;
+    width: 200px;
+    background-color: #5e7237;
     color: white;
     text-align: center;
     border-radius: 5px;
+}
+
+.adoptBtn:hover {
+    filter: saturate(4)
 }
 
 .postForm__input {
