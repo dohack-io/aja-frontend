@@ -80,15 +80,21 @@
 }
 
 .details__posts {
-    margin: 5px 0;
-    padding: 3px;
+    margin: 5px;
+    padding-left: 5px;
     width: 100%;
     background-color: rgba(141, 141, 141, 0.26);
 }
 
+.details__posts>p {
+    margin: 0;
+    padding: 0;
+}
+
 .post__info p,
 i {
-    margin-right: 10px;
+    margin: 0 10px 0 0;
+    padding: 0;
 }
 
 .post__text {

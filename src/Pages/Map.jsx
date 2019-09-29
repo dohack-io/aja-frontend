@@ -15,7 +15,6 @@ class Map extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      user: JSON.parse(localStorage.getItem("user")),
       popups: [],
       viewport: {},
       gardens: null
@@ -67,7 +66,7 @@ class Map extends Component {
   }
 
   render() {
-    if (this.state.user && this.state.gardens) {
+    if (this.state.gardens) {
       //console.log(this.state);
 
       let allGardens = this.state.gardens;

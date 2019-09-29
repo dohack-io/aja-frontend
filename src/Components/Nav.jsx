@@ -54,9 +54,10 @@ export default class Nav extends Component {
             <i className="fas fa-bars fa-2x navbar__icon" onClick={this.toggleBurger}></i>        
           </div>  
           <div className="navbar__burgerBox" style={{display: this.state.showBurger}}>
-            <Link to="/about" className="navbar__link">About</Link>
+            <Link to="/gardenAround" className="navbar__link">Gardens Around</Link>
             <Link to="/signup" className="navbar__link">SignUp</Link>
             <Link to="/login" className="navbar__link">Login</Link>
+            <Link to="/about" className="navbar__link">About</Link>
           </div>
         </>
       )

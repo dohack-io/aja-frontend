@@ -1,6 +1,13 @@
 .about__description {
     height: 100%;
     padding: 20px;
-    width: 60%;
+    width: 80%;
     min-width: 300px;
+}
+
+.about__featuresBox {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
