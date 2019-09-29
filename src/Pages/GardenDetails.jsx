@@ -75,7 +75,8 @@ export default class GardenDetails extends Component {
     const text = this.state.text;
     this.service.post(`/user/${this.state.user.user.id}/garden/${this.state.gardenID}/posts`, {text})
     .then(response=>{
-        this.props.history.push(`/garden/${response.data.garden_id}`)
+      let id=response.data.garden_id
+        this.props.history.push(`/garden/${id}`)
     })
     .catch(err =>{
         console.log(err)

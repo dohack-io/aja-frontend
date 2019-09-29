@@ -23,8 +23,8 @@ class App extends Component {
         <Route exact path="/gardenAround" render ={()=> <Map/>}/>
         <Route exact path="/signup" render ={(routeProps)=><SignUp {...routeProps}/>}/>
         <Route exact path="/login" render = {(routeProps)=><Login {...routeProps}/>}/>
-        <Route exact path="/user/profile" render = {(routeProps)=> <Profile/>}/>
-        <Route exact path="/user/mygardens" render = {(routeProps)=> <MyGardens/>}/>
+        <Route exact path="/user/profile" render = {(routeProps)=> <Profile {...routeProps}/>}/>
+        <Route exact path="/user/mygardens" render = {(routeProps)=> <MyGardens {...routeProps}/>}/>
         <Route exact path="/garden/:id" render = {(routeProps) => <GardenDetails {...routeProps} /> } />
       </>
     )

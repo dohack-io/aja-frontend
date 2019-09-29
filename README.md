@@ -1,3 +1,40 @@
+### AJA
+with Aja's world, future city gardens will be maintained by the citizens who live nearby as a healthy human environment ecosystem .
+
+## Description
+currently, the garden is maintained by the people who is hired by governments.
+some garbage cleaning tasks in the garden/forest even rely on volunteering work.
+But meanwhile there are large almost of people who have gardening as hobby where you can find such communitions a lot, but sometimes don't have a (big) garden by themselves, and/or the people who are retired and have time and energy to make volunteer work in the area also gardening benefits helps people's mind and body.
+So we wanna make such a system combine the needs and demands for furture city.
+
+
+## Built with
+Javascript, React, Node.js, SQL, HTML, CSS
+
+## What benefit will your work bring in smart city context?
+- Join your city
+- Take care of a garden
+- Be part of the community
+- Increase everyones quality of live
+- human-environment ecosystem
+
+## What were challenges you encountered and Lessons Learned?
+Don't give up having fun by doing.
+
+## About your team
+Frontend happy folks: Jennifer and Luca
+Backend dude: Nikolas and Weiling (Weiling is hello world in backend. she learns constantly!). 
+had fun and learn a lots!
+
+## What's next for your project?
+made MVP, wanna launch a test case
+
+## How does it look?
+
+
+## Anything to add?
+come and have a look at our website, it is fully functional full stack system done within the 24 hours.
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
