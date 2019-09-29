@@ -7,8 +7,7 @@ import GardenInfo from "../Components/GardenInfo";
 import ReactMapGL, { Marker, Popup } from "react-map-gl";
 
 const settings = {
-  dragPan: true,
-  scrollZoom: true
+  dragPan: true
 };
 
 class Home extends Component {
@@ -28,7 +27,7 @@ class Home extends Component {
   _onInteractionStateChange = interactionState =>
     this.setState({ interactionState });
 
-  _onViewportStateChange = viewport => this.setState({ viewport });
+  _onViewportStateChange = viewport => this.setState({ viewport: {...viewport} });
 
   displayLocationInfo(position) {
     this._isUpdated = true;
@@ -47,7 +46,8 @@ class Home extends Component {
   }
 
   componentDidUpdate() {
-    if (this._isUpdated) {
+    if (this._isUpdated && !this._isUpdating) {
+      this._isUpdating = true;
       axios
         .post(`${process.env.REACT_APP_API}/gardens/search`, {
           longitude: this.state.viewport.longitude,
@@ -56,14 +56,18 @@ class Home extends Component {
         })
         .then(response => {
           this._isUpdated = false;
+          this._isUpdating = false;
           this.setState({ gardens: response.data });
+        })
+        .catch(error => {
+          this._isUpdating = false;
         });
     }
   }
 
   render() {
     if (this.state.user && this.state.gardens) {
-      console.log(this.state);
+      //console.log(this.state);
 
       let allGardens = this.state.gardens;
       const { popups, viewport } = this.state;
