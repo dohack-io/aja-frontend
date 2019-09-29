@@ -84,7 +84,7 @@ export default class GardenDetails extends Component {
           <div className="details__image image__one"></div>
           <div className="details__image image__two"></div>
           <div className="details__image image__three"></div>
-          <div className="details__image add__image"><i class="far fa-plus-square fa-3x"></i></div>
+          <div className="details__image add__image"><i className="far fa-plus-square fa-3x"></i></div>
         </div>
         <div className="details__box details__info">
           
@@ -108,7 +108,7 @@ export default class GardenDetails extends Component {
             <div className="comment__info">
               <p>Username</p>
               <p>12 hours ago</p>
-              <Link to ="#"><p><i class="fas fa-reply"></i> reply</p></Link>
+              <Link to ="#"><p><i className="fas fa-reply"></i> reply</p></Link>
             </div>
           </div>
           <div className="details__comments">
@@ -116,7 +116,7 @@ export default class GardenDetails extends Component {
             <div className="comment__info">
               <p>Username</p>
               <p>18 hours ago</p>
-              <Link to ="#"><p><i class="fas fa-reply"></i> reply</p></Link>
+              <Link to ="#"><p><i className="fas fa-reply"></i> reply</p></Link>
             </div>
           </div>
           <div className="details__comments">
@@ -124,7 +124,7 @@ export default class GardenDetails extends Component {
             <div className="comment__info">
               <p>Username</p>
               <p>21 hours ago</p>
-              <Link to ="#"><p><i class="fas fa-reply"></i> reply</p></Link>
+              <Link to ="#"><p><i className="fas fa-reply"></i> reply</p></Link>
             </div>
           </div>
           <div className="details__comments">
@@ -132,7 +132,7 @@ export default class GardenDetails extends Component {
             <div className="comment__info">
               <p>Username</p>
               <p>23 hours ago</p>
-              <Link to ="#"><p><i class="fas fa-reply"></i> reply</p></Link>
+              <Link to ="#"><p><i className="fas fa-reply"></i> reply</p></Link>
             </div>
           </div>
         </div>

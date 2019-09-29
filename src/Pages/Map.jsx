@@ -51,6 +51,8 @@ export default class Map extends Component {
   _renderPopup() {
     const {popupInfo} = this.state;
 
+    console.log("rendering popup ", popupInfo)
+
     return (
       popupInfo && (
         <Popup
@@ -58,6 +60,7 @@ export default class Map extends Component {
           anchor="top"
           longitude={popupInfo.longitude}
           latitude={popupInfo.latitude}
+          key={popupInfo.id}
           closeOnClick={false}
           onClose={() => this.setState({popupInfo: null})}
         >

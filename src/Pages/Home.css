@@ -34,3 +34,7 @@
     width: 30px;
     height: 30px
 }
+
+.mapboxgl-popup-close-button {
+    min-width: 20px;
+}
