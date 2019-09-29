@@ -1,99 +1,158 @@
-import React, {Component} from 'react';
-import MapGL, {Marker, Popup, NavigationControl, FullscreenControl} from 'react-map-gl';
+import React, { Component } from "react";
+import { Link } from "react-router-dom";
+import "./Home.css";
+import MainLayout from "../Components/MainLayout";
+import axios from "axios";
+import GardenInfo from "../Components/GardenInfo";
+import ReactMapGL, { Marker, Popup } from "react-map-gl";
 
-import GardenPin from '../Components/GardenPin';
-import GardenInfo from '../Components/GardenInfo';
-
-
-const TOKEN = process.env.REACT_APP_MAP_TOKEN; // Set your mapbox token here
-
-const fullscreenControlStyle = {
-  position: 'absolute',
-  top: 0,
-  left: 0,
-  padding: '10px'
+const settings = {
+  dragPan: true
 };
 
-const navStyle = {
-  position: 'absolute',
-  top: 36,
-  left: 0,
-  padding: '10px'
-};
+class Map extends Component {
+  _isUpdated = false;
 
-export default class Map extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      viewport: {
-        latitude: 37.785164,
-        longitude: -100,
-        zoom: 3.5,
-        bearing: 0,
-        pitch: 0
-      },
-      popupInfo: null
+      user: JSON.parse(localStorage.getItem("user")),
+      popups: [],
+      viewport: {},
+      gardens: null
     };
+    this.displayLocationInfo = this.displayLocationInfo.bind(this);
   }
 
-  _updateViewport = viewport => {
-    this.setState({viewport});
-  };
+  _onInteractionStateChange = interactionState =>
+    this.setState({ interactionState });
 
-  _renderCityMarker = (city, index) => {
-    return (
-      <Marker key={`marker-${index}`} longitude={city.longitude} latitude={city.latitude}>
-        <GardenPin size={20} onClick={() => this.setState({popupInfo: city})} />
-      </Marker>
-    );
-  };
+  _onViewportStateChange = viewport => this.setState({ viewport: {...viewport} });
 
-  _renderPopup() {
-    const {popupInfo} = this.state;
+  displayLocationInfo(position) {
+    this._isUpdated = true;
+    this.setState({
+      longitude: position.coords.longitude,
+      latitude: position.coords.latitude,
+      viewport: {
+        longitude: position.coords.longitude,
+        latitude: position.coords.latitude
+      }
+    });
+  }
 
-    console.log("rendering popup ", popupInfo)
+  componentDidMount() {
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition(this.displayLocationInfo);
+    }
+  }
 
-    return (
-      popupInfo && (
-        <Popup
-          tipSize={5}
-          anchor="top"
-          longitude={popupInfo.longitude}
-          latitude={popupInfo.latitude}
-          key={popupInfo.id}
-          closeOnClick={false}
-          onClose={() => this.setState({popupInfo: null})}
-        >
-          <GardenInfo info={popupInfo} />
-        </Popup>
-      )
-    );
+  componentDidUpdate() {
+    if (this._isUpdated && !this._isUpdating) {
+      this._isUpdating = true;
+      axios
+        .post(`${process.env.REACT_APP_API}/gardens/search`, {
+          longitude: this.state.viewport.longitude,
+          latitude: this.state.viewport.latitude,
+          radius: 5
+        })
+        .then(response => {
+          this._isUpdated = false;
+          this._isUpdating = false;
+          this.setState({ gardens: response.data });
+        })
+        .catch(error => {
+          this._isUpdating = false;
+        });
+    }
   }
 
   render() {
-    const {viewport} = this.state;
+    if (this.state.user && this.state.gardens) {
+      //console.log(this.state);
 
-    return (
-      <MapGL
-        {...viewport}
-        width="100%"
-        height="100%"
-        mapStyle="mapbox://styles/mapbox/dark-v9"
-        onViewportChange={this._updateViewport}
-        mapboxApiAccessToken={TOKEN}
-      >
+      let allGardens = this.state.gardens;
+      const { popups, viewport } = this.state;
+      let eachGarden = allGardens.map((garden, index) => {
+        return (
+          <>
+            <Marker
+              key={garden.id}
+              latitude={garden.latitude}
+              longitude={garden.longitude}
+              offsetLeft={-15}
+              offsetTop={-30}
+            >
+              <img
+                className="location_icon"
+                src="/images/location.png"
+                alt=""
+                onClick={() => {
+                  let popups = this.state.popups;
+                  popups.push({ id: garden.id });
+                  this.setState({ popups });
+                }}
+              />
+            </Marker>
+            {popups.find(popup => popup.id === garden.id) && (
+              <Popup
+                tipSize={5}
+                anchor="top"
+                key={`popup-${garden.id}`}
+                longitude={garden.longitude}
+                latitude={garden.latitude}
+                closeOnClick={false}
+                onClose={() => {
+                  let popups = this.state.popups;
+                  popups = popups.filter(popup => popup.id !== garden.id);
+                  this.setState({ popups });
+                }}
+              >
+                <GardenInfo id={garden.id} key={`info-${garden.id}`}/>
+              </Popup>
+            )}
+          </>
+        );
+      });
+      return (
+        <MainLayout>
+          <h1>Gardens around you</h1>
 
-        {this._renderPopup()}
-
-        <div className="fullscreen" style={fullscreenControlStyle}>
-          <FullscreenControl />
-        </div>
-        <div className="nav" style={navStyle}>
-          <NavigationControl />
-        </div>
-
-      </MapGL>
-    );
+          <div className="map">
+            <ReactMapGL
+              {...settings}
+              {...viewport}
+              mapboxApiAccessToken={process.env.REACT_APP_MAP_TOKEN}
+              onViewportChange={this._onViewportStateChange}
+              onInteractionStateChange={this._onInteractionStateChange}
+              width={1200}
+              height={600}
+              mapStyle="mapbox://styles/mapbox/navigation-preview-day-v2"
+              zoom={13}
+            >
+              <Marker
+              latitude={this.state.latitude}
+              longitude={this.state.longitude}
+              offsetLeft={-15}
+              offsetTop={-30}
+            >
+              <i class="fas fa-circle"></i>
+            </Marker>
+              {eachGarden}
+            </ReactMapGL>
+          </div>
+        </MainLayout>
+      );
+    } else {
+      return (
+        <p>Loading...</p>
+      );
+    }
   }
 }
 
+// export default GoogleApiWrapper({
+//     apiKey: process.env.REACT_APP_MAP_TOKEN
+//   })(Home);
+
+export default Map;
