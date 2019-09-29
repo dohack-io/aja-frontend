@@ -96,6 +96,7 @@ export default class GardenDetails extends Component {
           <div className="details__posts">
               <p className="post__text">{post.text}</p>
               <div className="post__info">
+                <p>by {post.author.name}</p>
                 <p className="post__time">{post.time}</p>
                 {/* <Link to ="#"><p><i class="fas fa-reply"></i> reply</p></Link> */}
               </div>
@@ -115,19 +116,22 @@ export default class GardenDetails extends Component {
         <div className="details__box details__info">
           
           <h4>Size: <span>{this.state.garden.size}</span> m²</h4>
-          {(this.state.garden.team)?
+          {(this.state.user)?(this.state.garden.team)?
           <button className="adoptBtn" onClick={()=>{this.deleteGarden(this.state.gardenID)}}  type="submit">Abandon garden</button>
           :
           <button className="adoptBtn" onClick={()=>{this.adoptGarden(this.state.gardenID)}}  type="submit">Adopt garden</button>
+          :null
         }
         </div>
 
         <div className="details__box">
+        {(this.state.user)?
             <form onSubmit={this.handleFormSubmit}>
                 <textarea className="postForm__input" name="text" cols="400" rows="5" placeholder="Write your post..." value={this.state.text} onChange={this.handleChange}></textarea>
                 <button className="adoptBtn" type="submit">Post</button>
             </form>
-
+            :null
+        }
             {(this.state.posts) ? (eachPost): null}
         </div>
         

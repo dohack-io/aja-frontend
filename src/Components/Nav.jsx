@@ -34,14 +34,15 @@ export default class Nav extends Component {
           <div className="navbar">
             <Link to="/"><i className="fab fa-pagelines fa-2x navbar__icon"></i></Link>
             <div className="navbar__right">
-              <Link to="/user/profile" className="navbar__username" >{this.state.user.user.name}</Link>
+              <Link to="/user/profile" className="navbar__username" >Hello, {this.state.user.user.name}!</Link>
               <i className="fas fa-bars fa-2x navbar__icon" onClick={this.toggleBurger}></i>   
             </div>
           </div>  
           <div className="navbar__burgerBox" style={{display: this.state.showBurger}}>
-            <Link to="/about" className="navbar__link">About</Link>  
-            <Link to="/user/profile" className="navbar__link">Profile</Link>
-            <Link to="#" className="navbar__link" onClick={() => this.logoutUser()}>Log out</Link>           
+          <Link to="/user/profile" className="navbar__link">Profile</Link>
+            <Link to="/gardenAround" className="navbar__link">Gardens Around</Link>
+            <Link to="#" className="navbar__link" onClick={() => this.logoutUser()}>Log out</Link>   
+            <Link to="/about" className="navbar__link">About</Link>          
           </div>
         </>
       )
@@ -53,9 +54,10 @@ export default class Nav extends Component {
             <i className="fas fa-bars fa-2x navbar__icon" onClick={this.toggleBurger}></i>        
           </div>  
           <div className="navbar__burgerBox" style={{display: this.state.showBurger}}>
-            <Link to="/about" className="navbar__link">About</Link>
+            <Link to="/gardenAround" className="navbar__link">Gardens Around</Link>
             <Link to="/signup" className="navbar__link">SignUp</Link>
             <Link to="/login" className="navbar__link">Login</Link>
+            <Link to="/about" className="navbar__link">About</Link>
           </div>
         </>
       )

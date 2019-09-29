@@ -2,9 +2,19 @@ import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import "./Home.css";
 import MainLayout from "../Components/MainLayout";
+<<<<<<< HEAD
 
+=======
+>>>>>>> 8b14a577f885c12411dd9b6a01aabda6f5414e21
 
 class Home extends Component {
+  constructor(props){
+    super(props);
+    this.state={
+      user: JSON.parse(localStorage.getItem("user"))
+    }
+  }
+
   render() {
       return (
         <MainLayout>
