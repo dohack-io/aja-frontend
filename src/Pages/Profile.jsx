@@ -18,7 +18,6 @@ class Profile extends Component {
             <MainLayout>
                 <div className="profile__box">
                     <div className="profile__userInfo">
-                        <h4 className="profile__userName">{this.state.user.user.name} {this.state.user.user.surname}</h4>
                         <div className="profile__userImage"></div>
                     </div>
                     <div className="profile__linkBox">
