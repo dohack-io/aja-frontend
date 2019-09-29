@@ -10,6 +10,7 @@ import MyGardens from "./Pages/MyGardens";
 import Setting from "./Pages/Setting";
 import Followed from "./Pages/FollowedGardens";
 import GardenDetails from "./Pages/GardenDetails";
+import Map from "./Pages/Map";
 
 class App extends Component {
   constructor(props){
@@ -20,7 +21,8 @@ class App extends Component {
     return(
       <>
         <Route exact path="/" render = {(routeProps)=> <Home {...routeProps}/>}/>
-        <Route exact path="/about" render = {()=> <About/>}/>
+        <Route exact path="/about" render = {(routeProps)=> <About {...routeProps}/>}/>
+        <Route exact path="/map" render ={()=> <Map/>}/>
         <Route exact path="/signup" render ={(routeProps)=><SignUp {...routeProps}/>}/>
         <Route exact path="/login" render = {(routeProps)=><Login {...routeProps}/>}/>
         <Route exact path="/user/profile" render = {(routeProps)=> <Profile/>}/>
