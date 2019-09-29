@@ -31,6 +31,10 @@ had fun and learn a lots!
 made MVP, wanna launch a test case
 
 ## How does it look?
+![1](https://i.imgur.com/n27D6qD.png)
+![2](https://i.imgur.com/1XqUUu8.png)
+![3](https://i.imgur.com/soWBwTg.png)
+![4](https://i.imgur.com/m1qqfYx.png)
 
 
 ## Anything to add?
