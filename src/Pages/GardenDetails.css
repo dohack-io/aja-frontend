@@ -70,12 +70,12 @@
     font-size: 1.4rem;
 }
 
-.comment__info {
+.post__info {
     font-size: 0.9rem;
     margin-top: 10px;
-    max-width: 400px;
+    width: 400px;
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     justify-content: flex-start;
 }
 
@@ -101,7 +101,7 @@ i {
 
 .adoptBtn {
     padding: 10px;
-    min-width: 100px;
+    width: 120px;
     background-color: green;
     color: white;
     text-align: center;

@@ -34,23 +34,15 @@ export default class GardenDetails extends Component {
           let allPosts=response.data;
           let now = new Date();
           let eachPost= allPosts.map((post) => {
-            post.time=this.timeFormat(new Date(post.created_at), now)
-            this.service.get(`/user/${post.author}`)
-            .then((user)=>{
-              post.authorName=user.data.name;
+              post.time=this.timeFormat(new Date(post.created_at), now)
+              return post
             })
-            return post;
-          })
           this.setState({garden: res.data, posts:eachPost});
-        })
-        .catch(err=>{
-          console.log(err)
-        })
-      })
+          }) 
       .catch((error)=>{
         this.setState({error: error.message})
       })
-  }
+  })}
 
   adoptGarden (gardenId){
     axios({
@@ -83,7 +75,7 @@ export default class GardenDetails extends Component {
     const text = this.state.text;
     this.service.post(`/user/${this.state.user.user.id}/garden/${this.state.gardenID}/posts`, {text})
     .then(response=>{
-        this.props.history.push(`/garden/${this.state.gardenID}`)
+        this.props.history.push(`/garden/${response.data.garden_id}`)
     })
     .catch(err =>{
         console.log(err)
@@ -104,9 +96,8 @@ export default class GardenDetails extends Component {
           <div className="details__posts">
               <p className="post__text">{post.text}</p>
               <div className="post__info">
-                {/* <p>by {post.authorName}</p> */}
                 <p className="post__time">{post.time}</p>
-                <Link to ="#"><p><i class="fas fa-reply"></i> reply</p></Link>
+                {/* <Link to ="#"><p><i class="fas fa-reply"></i> reply</p></Link> */}
               </div>
           </div>
         )
@@ -133,8 +124,8 @@ export default class GardenDetails extends Component {
 
         <div className="details__box">
             <form onSubmit={this.handleFormSubmit}>
-                <textarea className="postForm__input" name="text" cols="40" rows="5" placeholder="Write your post..." value={this.state.text} onChange={this.handleChange}></textarea>
-                <button style={{marginTop:"10px"}} type="submit">Post</button>
+                <textarea className="postForm__input" name="text" cols="400" rows="5" placeholder="Write your post..." value={this.state.text} onChange={this.handleChange}></textarea>
+                <button className="adoptBtn" type="submit">Post</button>
             </form>
 
             {(this.state.posts)?(eachPost): null}
