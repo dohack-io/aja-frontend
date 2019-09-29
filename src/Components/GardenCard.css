@@ -10,6 +10,7 @@
     border-radius: 5px;
     margin: 10px 0;
     position: relative;
+    filter: brightness(0.7)
 }
 
 .gardenCard__name {
@@ -30,7 +31,6 @@
     width: 100%;
 }
 
-.gardenCard__link:hover {
-    color: rgb(149, 1, 1);
+.gardenCard__image:hover {
+    filter: brightness(1)
 }
-
