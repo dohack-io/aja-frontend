@@ -23,3 +23,7 @@
     text-decoration: none;
     width: 100%;
 }
+
+.gardenCard__link:hover {
+    color: rgb(149, 1, 1);
+}
