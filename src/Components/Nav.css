@@ -53,3 +53,11 @@
   align-items: center;
   justify-content: center;
 }
+
+.navbar i {
+  color: #3e452e;
+}
+
+.navbar i:hover {
+  color: yellow;
+}

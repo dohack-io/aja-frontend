@@ -11,3 +11,7 @@ html, body {
 * {
   color: rgb(20, 20, 20);
 }
+
+p {
+  font-family: "Open Sans"
+}

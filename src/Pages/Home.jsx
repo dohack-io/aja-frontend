@@ -2,7 +2,6 @@ import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import "./Home.css";
 import MainLayout from "../Components/MainLayout";
-import axios from "axios";
 
 
 class Home extends Component {
@@ -16,14 +15,17 @@ class Home extends Component {
                   We make cities greener and bring the neighborhood together. With
                   Aja everyone can take care of a small pice of land and transform
                   a brown and boring parcel into a blooming garden. You can browse
-                  open gardening areas on our map after logging in.
+                  open gardening areas on our map after logging in. Join the community and be part of something bigger!
                 </p>
-                <Link to="/signup" className="homepage__getStarted">
-                  {"Sign up"}
-                </Link>
-                <Link to="/login" className="homepage__getStarted">
-                  {"Log in"}
-                </Link>
+                <div className="homepage__linkBox">
+                  <Link to="/signup" className="homepage__getStarted">
+                    Sign up
+                  </Link>
+                  <Link to="/login" className="homepage__getStarted">
+                    Log in
+                  </Link>
+                </div>
+                
               </div> 
           </div>
         </MainLayout>
