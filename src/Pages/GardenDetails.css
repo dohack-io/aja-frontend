@@ -80,6 +80,7 @@
 }
 
 .details__posts {
+    windth: 300px;
     margin: 5px 0;
     padding: 3px;
     background-color: rgba(141, 141, 141, 0.26);

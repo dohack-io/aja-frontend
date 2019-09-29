@@ -16,7 +16,7 @@ export default class GardenDetails extends Component {
       user: JSON.parse(localStorage.getItem('user')),
       gardenID: this.props.match.params.id,
       garden: [],
-      posts:null,
+      posts: null,
       error: null,
       text:""
     };
@@ -34,10 +34,10 @@ export default class GardenDetails extends Component {
           let allPosts=response.data;
           let now = new Date();
           let eachPost= allPosts.map((post) => {
-            post.time=this.timeFormat(new Date(post.created_at), now)
+            post.time = this.timeFormat(new Date(post.created_at), now)
             this.service.get(`/user/${post.author}`)
             .then((user)=>{
-              post.authorName=user.data.name;
+              post.authorName = user.data.name;
             })
             return post;
           })
@@ -137,7 +137,7 @@ export default class GardenDetails extends Component {
                 <button style={{marginTop:"10px"}} type="submit">Post</button>
             </form>
 
-            {(this.state.posts)?(eachPost): null}
+            {(this.state.posts) ? (eachPost): null}
         </div>
         
       </MainLayout>

@@ -34,7 +34,7 @@
 }
 
 .navbar__burgerBox {
-  position: fixed;
+  position: absolute;
   top: 8vh;
   height: 60vh;
   width: 100%;
