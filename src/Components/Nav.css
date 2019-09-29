@@ -12,6 +12,10 @@
   text-decoration: none;
 }
 
+.navbar__link:hover {
+  color: rgb(149, 1, 1);
+}
+
 .navbar__username {
   margin: 0 15px;
   text-decoration: none;
