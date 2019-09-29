@@ -1,6 +1,9 @@
 ### AJA
 with Aja's world, future city gardens will be maintained by the citizens who live nearby as a healthy human environment ecosystem .
 
+### live demo
+http://aja.nikl.me
+ 
 ## Description
 Take a look at [aja.nikl.me](https://aja.nikl.me).
 currently, the garden is maintained by the people who is hired by governments.
